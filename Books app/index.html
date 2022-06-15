@@ -18,12 +18,53 @@
       My <span>books</span> app
     </h1>
 
-    <form class="form">
+    <form class="form" novalidate>
       <div class="form-control">
-        <input type="text" id="title">
+        <input type="text" id="title" required>
         <label for="title">Title</label>
       </div>
+      <div class="form-control">
+        <input type="text" id="author" required>
+        <label for="author">Author</label>
+      </div>
+      <div class="form-control">
+        <input type="text" id="isbn" required>
+        <label for="isbn">ISBN#</label>
+      </div>
+
+      <button class="add-book-btn">Add book</button>
     </form>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>ISBN#</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Book 1</td>
+          <td>Author 1</td>
+          <td>65465476</td>
+          <td><button class="delete-book-btn"><i class="fa-solid fa-circle-xmark"></i></button></td>
+        </tr>
+        <tr>
+          <td>Book 1</td>
+          <td>Author 1</td>
+          <td>65465476</td>
+          <td><button class="delete-book-btn"><i class="fa-solid fa-circle-xmark"></i></button></td>
+        </tr>
+        <tr>
+          <td>Book 1</td>
+          <td>Author 1</td>
+          <td>65465476</td>
+          <td><button class="delete-book-btn"><i class="fa-solid fa-circle-xmark"></i></button></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </body>
 
