@@ -79,6 +79,8 @@ h1.title::after {
 
 .menu-item img {
   width: 200px;
+  height: 200px;
+  flex-shrink: 0;
   border: 2px solid var(--clr-gold);
   border-radius: 10px;
   object-fit: cover;
