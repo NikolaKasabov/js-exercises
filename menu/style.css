@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700&display=swap");
 
+:root {
+  --clr-gold: #c59d5f;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -8,9 +12,111 @@
 
 body {
   font-family: Roboto, sans-serif;
-  background-color: rgb(238, 238, 238);
+  background-color: #f4faff;
 }
 
 .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+h1.title {
+  margin-top: 50px;
+  position: relative;
+}
+
+h1.title::after {
+  content: "";
+  width: 40%;
+  height: 4px;
+  background-color: var(--clr-gold);
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.buttons-container {
+  margin-top: 30px;
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  padding: 5px 10px;
+  border: 2px solid var(--clr-gold);
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--clr-gold);
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-transform: capitalize;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.menu-container {
+  width: 100%;
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.menu-item {
+  display: flex;
+  gap: 10px;
+  width: 90%;
+  max-width: 600px;
+}
+
+.menu-item img {
+  width: 200px;
+  border: 2px solid var(--clr-gold);
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.menu-item header {
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(216, 216, 216);
+}
+
+.menu-item .title {
+  text-transform: capitalize;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.menu-item .price {
+  color: var(--clr-gold);
+}
+
+.menu-item .price::before {
+  content: '$';
+}
+
+.menu-item .text {
+  font-size: 14px;
+  color: rgb(60, 84, 90);
+  letter-spacing: 0.5px;
+}
+
+@media screen and (min-width: 1000px) {
+  .menu-container {
+    justify-content: flex-start;
+  }
+  .menu-item {
+    width: calc(50% - 10px);
+  }
 }

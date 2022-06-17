@@ -80,3 +80,65 @@ const menu = [
     desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
   },
 ];
+
+const buttonsContainer = document.querySelector('.buttons-container');
+const menuContainer = document.querySelector('.menu-container');
+
+class UI {
+  static createFilterButtons() {
+    const categories = menu.reduce((acc, cur) => {
+      if (!acc.includes(cur.category)) {
+        acc.push(cur.category);
+      }
+      return acc;
+    }, []);
+
+    categories.forEach(category => {
+      const button = document.createElement('button');
+      button.classList.add('btn');
+      button.dataset.category = category;
+      button.innerText = category;
+      buttonsContainer.appendChild(button);
+    });
+  }
+
+  static showMenuItems(category) {
+    menuContainer.innerHTML = '';
+    let filteredItems;
+
+    if (category === 'all') {
+      filteredItems = [...menu];
+    } else {
+      filteredItems = menu.filter(item => item.category === category);
+    }
+
+    filteredItems.forEach(item => {
+      const article = document.createElement('article');
+      article.classList.add('menu-item');
+      article.innerHTML = `
+        <img src="${item.img}" alt="${item.title}">
+        <div class="info">
+          <header class="header">
+            <div class="title">${item.title}</div>
+            <div class="price">${item.price}</div>
+          </header>
+          <div class="text">${item.desc}</div>
+        </div>
+      `;
+
+      menuContainer.appendChild(article);
+    });
+  }
+}
+
+UI.createFilterButtons();
+UI.showMenuItems('all');
+
+buttonsContainer.addEventListener('click', ev => {
+  if (!ev.target.classList.contains('btn')) {
+    return;
+  }
+
+  const category = ev.target.dataset.category;
+  UI.showMenuItems(category);
+});
